@@ -19,10 +19,6 @@
   Learn text-to-speech, voice cloning, authentication, billing, and deployment with Next.js, React, and Chatterbox TTS.
 </p>
 
-<br />
-
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/SioRb1?referralCode=ANTONIO&utm_medium=integration&utm_source=template&utm_campaign=generic)
-
 </div>
 
 <br />
@@ -31,13 +27,11 @@
 
 This repository supports the **BriteEducation** curriculum at [school.britelink.io](https://school.britelink.io). It walks through building a production-ready TTS application: from dashboard UI and backend infrastructure to voice management, usage-based billing, and GPU deployment.
 
-Based on the open-source [Resonance](https://github.com/code-with-antonio/resonance) project, adapted for BriteLink academy use.
+Full course materials, environment setup, and chapter guides are available on [school.britelink.io](https://school.britelink.io).
 
-## Tutorial
+## Course chapters
 
-[![Watch on YouTube](https://img.shields.io/badge/Watch_the_Full_Course-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://cwa.run/resonance-gh-yt)
-
-Learn how to build this entire project from scratch in a **free video course** on YouTube. Each chapter has a matching branch so you can check out the code at any point:
+Each chapter has a matching branch so you can check out the code at any point. Follow the chapter walkthroughs on [school.britelink.io](https://school.britelink.io).
 
 | Branch | Chapter |
 |--------|---------|
@@ -69,14 +63,16 @@ git checkout 04-backend-infrastructure  # example: jump to Chapter 4
 
 ## Getting Started
 
+See [school.britelink.io](https://school.britelink.io) for the full setup guide, prerequisites, and service configuration.
+
 ### Prerequisites
 
 - Node.js **20.9** or later
-- [Prisma Postgres](https://cwa.run/prisma) database
-- [Clerk](https://cwa.run/clerk) account (with Organizations enabled)
-- [Cloudflare R2](https://cwa.run/cloudflare-r2) bucket
-- [Modal](https://cwa.run/modal) account (for GPU-hosted TTS)
-- [Polar](https://cwa.run/polar) account (for billing)
+- PostgreSQL database (Prisma)
+- Clerk account (with Organizations enabled)
+- Cloudflare R2 bucket
+- Modal account (for GPU-hosted TTS)
+- Polar account (for billing)
 
 ### 1. Clone and install
 
@@ -92,11 +88,11 @@ npm install
 cp .env.example .env
 ```
 
-Fill in the blank values in `.env`. Sensible defaults (Clerk routes, Polar meter names, `APP_URL`, etc.) are pre-filled.
+Fill in the blank values in `.env`. Refer to [school.britelink.io](https://school.britelink.io) for environment variable details and service setup.
 
 ### 3. Set up Polar billing
 
-In your [Polar](https://cwa.run/polar) dashboard, create two **meters** under **Meters**:
+Create two **meters** under **Meters** in your Polar dashboard (steps on [school.britelink.io](https://school.britelink.io)):
 
 1. **Voice Creation** meter
    - Filter: Name equals `voice_creation`
@@ -128,7 +124,7 @@ npx prisma migrate deploy
 
 ### 5. Deploy the TTS engine
 
-Update `chatterbox_tts.py` with your R2 credentials, create Modal secrets, then deploy:
+Update `chatterbox_tts.py` with your R2 credentials, create Modal secrets, then deploy. See [school.britelink.io](https://school.britelink.io) for Modal and R2 configuration.
 
 ```bash
 modal deploy chatterbox_tts.py
@@ -152,7 +148,7 @@ npx prisma db seed
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open the app locally after `npm run dev`. For deployment and hosting, see [school.britelink.io](https://school.britelink.io).
 
 ## Project Structure
 
@@ -181,12 +177,6 @@ src/
 | `npm run start` | Start production server |
 | `npm run lint` | Lint with ESLint |
 | `npm run sync-api` | Regenerate Chatterbox API types from OpenAPI spec |
-
-## Acknowledgements
-
-- [Chatterbox TTS](https://github.com/resemble-ai/chatterbox) by Resemble AI
-- [Resonance](https://github.com/code-with-antonio/resonance) — original open-source course project
-- [Modal](https://modal.com) — serverless GPU deployment
 
 ---
 
